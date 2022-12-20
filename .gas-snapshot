@@ -1,1 +1,3 @@
-TestContract:testBar() (gas: 401)
+TestProxyInitialization:testInitialization() (gas: 40893)
+TestContractDummy:testSetNameLessThan32() (gas: 163163)
+TestContractDummy:testSetNameMoreThan32() (gas: 209209)
