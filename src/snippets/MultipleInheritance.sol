@@ -2,14 +2,12 @@
 pragma solidity ^0.8.16;
 
 import "forge-std/Test.sol";
-import "forge-std/console.sol";
 
 abstract contract D {
     function f() public pure virtual returns (uint256) {
         return 0;
     }
 }
-
 
 abstract contract C is D {
     function f() public pure virtual override returns (uint256) {
