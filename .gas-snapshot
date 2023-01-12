@@ -1,4 +1,5 @@
 TestMultipleInheritance:testMultipleInheritance() (gas: 6995)
+TestEmptyContractWithContructor:testAgainstSolc() (gas: 21307)
 TestProxyInitialization:testInitialization() (gas: 40893)
 TestContractDummy:testSetNameLessThan32() (gas: 163163)
 TestContractDummy:testSetNameMoreThan32() (gas: 209209)
