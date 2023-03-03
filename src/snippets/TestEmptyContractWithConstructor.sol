@@ -20,16 +20,19 @@ contract TestEmptyContractWithContructor is Test {
         // Assert local solc used is in 0.8.16
         // if grep returned 0, it matched so check that it matched 0.8.16
         string memory bashCommand =
-            'cast abi-encode "f(uint256)" $(solc --version | tail -2 | head -1 | grep -q 0.8.16; echo $?)';
+            'solc --version | tail -2 | head -1 | grep 0.8.';
 
         string[] memory inputs = new string[](3);
         inputs[0] = "bash";
         inputs[1] = "-c";
         inputs[2] = bashCommand;
 
-        uint256 matched = abi.decode(vm.ffi(inputs), (uint256));
+        string memory matched = string(vm.ffi(inputs));
+        console.log(matched);
 
-        assertEq(matched, uint256(0));
+        string memory expected = "Version: 0.8.16+commit.07a7930e.Darwin.appleclang";
+
+        assertEq(matched, expected);
 
         // We explicitly optmize and use 200 runs to match the foundry toml
         bashCommand =

@@ -26,6 +26,9 @@ jobs:
       - name: Solc use 0.8.16
         run: solc-select use 0.8.16
 
+      - name: Verify solc version used
+        run: solc --version
+
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
