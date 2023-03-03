@@ -16,8 +16,10 @@ contract MappingStorageAccess {
     // slot 0: stringMapping
     // slot 1: bytesMapping
     // slot 2: uint256Mapping
-    // slot 3: dummy one
-    // those slots are empty
+    // slot 3: uint256 dummy variable
+
+    // The 3 first slots correspinding to mappings are empty
+    // The dummy one is not
 
     // mapping with a string as key
     mapping(string => uint256) public stringMapping;
