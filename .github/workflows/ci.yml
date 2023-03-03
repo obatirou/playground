@@ -11,6 +11,7 @@ env:
 jobs:
   run-ci:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
@@ -36,6 +37,9 @@ jobs:
 
       - name: Install deps
         run: forge install
+
+      - name: test foundry version
+        run: foundryup -v nightly-8bbde620ab39246f3c89700a19dfe6f347e99f4f
 
       - name: Run tests
         run: forge test -vvvv
