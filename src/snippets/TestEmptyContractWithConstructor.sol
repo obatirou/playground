@@ -19,8 +19,7 @@ contract TestEmptyContractWithContructor is Test {
     function testAgainstSolc() public {
         // Assert local solc used is in 0.8.16
         // if grep returned 0, it matched so check that it matched 0.8.16
-        string memory bashCommand =
-            'cast abi-encode "f(uint256)" $(solc --version | tail -2 | head -1 | grep -q 0.8.16; echo $?)';
+        string memory bashCommand = "./src/scripts/solc-version-grep.sh";
 
         string[] memory inputs = new string[](3);
         inputs[0] = "bash";
@@ -33,7 +32,7 @@ contract TestEmptyContractWithContructor is Test {
 
         // We explicitly optmize and use 200 runs to match the foundry toml
         bashCommand =
-            'cast abi-encode "f(bytes)" $(solc src/snippets/EmptyContractWithConstructor.sol --bin-runtime --optimize --optimize-runs 200 | tail -2 | head -1)';
+            './src/scripts/solc-compile-EmptyContractWithConstructor.sh';
 
         inputs[0] = "bash";
         inputs[1] = "-c";
